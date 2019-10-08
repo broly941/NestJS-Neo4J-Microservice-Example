@@ -7,9 +7,8 @@ export class ObjectController {
   constructor(private readonly objectService: ObjectService) {
   }
 
-  @Get()
-  getHello(): string {
-    return this.objectService.getHello();
+  @Get("all")
+  async getAllObjects(): Promise<any[]> {
+    return await this.objectService.getAllObjects();
   }
-
 }

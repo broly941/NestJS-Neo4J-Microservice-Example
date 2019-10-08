@@ -1,4 +1,5 @@
 export enum Config {
-    mongoUrl='localhost',
-    mongoDbName='navigatorDb'
+    neo4jUrl = "bolt://localhost",
+    neo4jUserName = "neo4j",
+    neo4jPass = "root"
 }

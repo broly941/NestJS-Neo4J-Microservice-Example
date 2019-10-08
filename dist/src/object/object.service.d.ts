@@ -1,3 +1,3 @@
 export declare class ObjectService {
-    getHello(): string;
+    getAllObjects(): Promise<any[]>;
 }

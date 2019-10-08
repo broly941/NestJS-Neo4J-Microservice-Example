@@ -15,16 +15,16 @@ let ObjectController = class ObjectController {
     constructor(objectService) {
         this.objectService = objectService;
     }
-    getHello() {
-        return this.objectService.getHello();
+    async getAllObjects() {
+        return await this.objectService.getAllObjects();
     }
 };
 __decorate([
-    common_1.Get(),
+    common_1.Get("all"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], ObjectController.prototype, "getHello", null);
+    __metadata("design:returntype", Promise)
+], ObjectController.prototype, "getAllObjects", null);
 ObjectController = __decorate([
     common_1.Controller('object'),
     __metadata("design:paramtypes", [object_service_1.ObjectService])

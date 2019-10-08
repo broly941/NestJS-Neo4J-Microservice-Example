@@ -1,0 +1,27 @@
+CREATE (Object1:Object {
+  name: 'Объект 1',
+  long: 55.849729,
+  lat: 37.751511,
+  hidden: false,
+  collapsed: false,
+  isRoot: true,
+  isObject: true
+  })
+  CREATE (Object2:Object {
+  name: 'Объект 2',
+  long: 55.859532,
+  lat: 37.626777,
+  hidden: false,
+  collapsed: false,
+  isRoot: true,
+  isObject: true
+  })
+  CREATE (Object3:Object {
+  name: 'Объект 3',
+  long: 59.931450,
+  lat: 30.340807,
+  hidden: false,
+  collapsed: false,
+  isRoot: true,
+  isObject: true
+  })

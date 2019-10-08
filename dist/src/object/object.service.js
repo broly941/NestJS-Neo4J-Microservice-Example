@@ -7,19 +7,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
+const Config_1 = require("../../config/current/Config");
+const Neo4j_query_1 = require("../../domain/enum/Neo4j-query");
 const neo4j_driver_1 = require("neo4j-driver");
-const driver = neo4j_driver_1.default.driver('bolt://localhost', neo4j_driver_1.default.auth.basic('neo4j', 'root'));
+const driver = neo4j_driver_1.default.driver(`${Config_1.Config.neo4jUrl}`, neo4j_driver_1.default.auth.basic(`${Config_1.Config.neo4jUserName}`, `${Config_1.Config.neo4jPass}`));
 const session = driver.session();
 let ObjectService = class ObjectService {
-    getHello() {
-        session.run('MATCH (u:User) return u').then(result => {
+    getAllObjects() {
+        let data = [];
+        return session.run(Neo4j_query_1.Neo4jAPI.GET_ALL_OBJECTS)
+            .then(result => {
             session.close();
             result.records.map(value => {
-                console.log(value.get(0));
+                const node = value.get(0);
+                data.push({
+                    id: node.identity.low,
+                    properties: node.properties
+                });
             });
             driver.close();
+            return data;
         });
-        return 'Hello World!';
     }
 };
 ObjectService = __decorate([
