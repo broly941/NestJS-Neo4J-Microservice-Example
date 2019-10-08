@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Config } from '../../config/current/Config';
-import {Neo4jAPI} from '../../domain/enum/Neo4j-query'
+import { Config } from '../config/current/Config';
+import {Neo4jAPI} from '../domain/enum/Neo4j-query'
 import neo4j from 'neo4j-driver';
 
 const driver = neo4j.driver(
